@@ -1,5 +1,5 @@
 # cross-compilation-docker
-cross-compilation docker repository for ROS robot application using colcon for AWS Robomaker deployment to armhf or arm64.
+Cross-compilation docker repository for ROS robot application using colcon for AWS Robomaker deployment to armhf or arm64.
 
 This page describes in detail the entire process of building and bundling a robot application using colcon for AWS Robomaker deployment.
 
