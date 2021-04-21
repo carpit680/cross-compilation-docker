@@ -21,41 +21,34 @@ The robot in our case is either an armhf or an arm64(backward compatible with ar
 
 1. Install git and Wget if not already installed.
 ```
-    sudo apt install git wget
+    sudo apt install \
+        git \
+        wget \
+        qemu \
+        binfmt-support \
+        qemu-user-static
 ```
-2. Use quick install script for Ros Melodic desktop.
+2. Use quick install script for docker.
 ```
-    wget https://raw.githubusercontent.com/carpit680/quick_install/master/ros/ros_install.sh && chmod 755 ros_install.sh && ./ros_install.sh melodic
+    wget -O docker_install.sh https://get.docker.com && chmod 755 docker_install.sh && ./docker_install.sh
 ```
-3. Source .bashrc or .zshrc file to access ROS.
-```
-    source ~/.bashrc # or ~/.zshrc
-```
-4. Use quick install script for docker.
-```
-    wget https://get.docker.com && mv index.html docker_install.sh && chmod 755 docker_install.sh && ./docker_install.sh
-```
-5. Install the qemu packages.
-```
-    sudo apt-get install qemu binfmt-support qemu-user-static 
-```
-6. This step will execute the registering scripts.
+3. This step will execute the registering scripts.
 ```
     sudo docker run --rm --privileged multiarch/qemu-user-static --reset -p yes 
 ```
-7. Clone cross-compilation repository.
+4. Clone cross-compilation repository.
 ```
     git clone https://github.com/carpit680/cross-compilation-docker
 ```
-8. Clone your ROS package if not done already.
+5. Clone your ROS package if not done already.
 ```
-    git clone <link-to-your-ros-package> 
+   git clone <link-to-your-ros-package> 
 ```
-9. Go to the cross-compilation directory.
+6. Go to the cross-compilation directory.
 ```
     cd cross-compilation-docker/
 ```
-10. Build cross-compilation docker image and set up all the necessary components.
+7. Build cross-compilation docker image and set up all the necessary components.
 ```
     sudo bash bin/build_image.bash
 ```
