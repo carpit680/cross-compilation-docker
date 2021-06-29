@@ -15,6 +15,8 @@ The robot in our case is either an armhf or an arm64(backward compatible with ar
 
 * ROS package
 
+>**Note:** Use foxy-arm64 branch for ROS2 foxy on aarch64.
+
 * All other pre-requisites are installed in the steps given below. Skip whatever is already installed.
 
 ## Setup
