@@ -65,7 +65,7 @@ fi
 
 WORK_DIR=$(pwd)
 
-if [ ! -f "$WORK_DIR/Dockerfile.xenial" ]; then
+if [ ! -f "$WORK_DIR/Dockerfile.focal" ]; then
   echo "Must be run in the same folder as a Dockerfile"
   exit 1
 fi
@@ -82,10 +82,10 @@ fi
 
 # Build the Docker image
 UBUNTU_VERSION=`lsb_release -cs`
-if [ $UBUNTU_VERSION = 'xenial' ]; then
-  ROS_VERSION="kinetic"
+if [ $UBUNTU_VERSION = 'focal' ]; then
+  ROS_VERSION="foxy"
 else
-  ROS_VERSION="melodic"
+  ROS_VERSION="dashing"
 fi
-docker build -t ros-cross-compile:armhf --build-arg ROS_VERSION=${ROS_VERSION} --build-arg UBUNTU_VERSION=${UBUNTU_VERSION} -f ${WORK_DIR}/Dockerfile.${UBUNTU_VERSION} "${WORK_DIR}"
+docker build -t ros-cross-compile:arm64 --build-arg ROS_VERSION=${ROS_VERSION} --build-arg UBUNTU_VERSION=${UBUNTU_VERSION} -f ${WORK_DIR}/Dockerfile.${UBUNTU_VERSION} "${WORK_DIR}"
 
