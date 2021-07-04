@@ -18,8 +18,7 @@ RUN apt-get update && apt-get install -y \
    python \
    python3-apt \
    curl \
-   python3-pip \
-   python-pip \   
+   python3-pip \   
  && python3 -m pip install -U colcon-ros-bundle
 
 # Add custom rosdep rules
@@ -30,4 +29,4 @@ RUN echo "yaml https://s3-us-west-2.amazonaws.com/rosdep/python.yaml" > /etc/ros
 COPY custom-pip-rules.conf /etc/pip.conf
 
 # Add custom apt sources for bundling
-COPY focal-sources-arm64.yaml /opt/cross/apt-sources.yaml
+COPY focal-sources.yaml /opt/cross/apt-sources.yaml
