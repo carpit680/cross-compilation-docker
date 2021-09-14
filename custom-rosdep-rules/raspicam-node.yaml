@@ -1,4 +1,7 @@
 raspicam_node:
   ubuntu:
     xenial: [ros-kinetic-raspicam-node]
-
+python-gspread:
+  ubuntu:
+    pip:
+      packages: [gspread]
