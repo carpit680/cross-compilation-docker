@@ -14,4 +14,4 @@ colcon bundle --build-base armhf_build --install-base armhf_install --bundle-bas
 
 mv armhf_bundle/output.tar armhf_bundle/foodlGo_robot_bundle.armhf.tar
 
-aws s3 cp armhf_bundle/output.tar s3://foodl-robomaker-bucket/foodlGo_robot_bundle.armhf.tar
+aws s3 cp armhf_bundle/foodlGo_robot_bundle.armhf.tar s3://foodl-robomaker-bucket/foodlGo_robot_bundle.armhf.tar

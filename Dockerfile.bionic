@@ -38,9 +38,10 @@ RUN python3 -m pip install -U colcon-ros-bundle
 
 RUN pip3 install -Iv markupsafe==2.0.0
 
-RUN apt-get -y install awscli
+RUN apt-get -y install awscli \
+&& mkdir ~/.aws
 
-COPY .aws ~/
+COPY .aws /root/.aws/
 # Add custom rosdep rules
 COPY custom-rosdep-rules/raspicam-node.yaml /etc/ros/rosdep/custom-rules/raspicam-node.yaml
 RUN echo "yaml file:/etc/ros/rosdep/custom-rules/raspicam-node.yaml" > /etc/ros/rosdep/sources.list.d/22-raspicam-node.list \

@@ -20,7 +20,7 @@ install_docker() {
 
   apt-get update
   apt-get install -y docker-ce
-  cp -r ~/.aws .
+  
 }
 
 build_qemu() {
@@ -88,5 +88,8 @@ if [ $UBUNTU_VERSION = 'xenial' ]; then
 else
   ROS_VERSION="melodic"
 fi
+
+cp -r ~/.aws .
+
 docker build -t ros-cross-compile:armhf --build-arg ROS_VERSION=${ROS_VERSION} --build-arg UBUNTU_VERSION=${UBUNTU_VERSION} -f ${WORK_DIR}/Dockerfile.${UBUNTU_VERSION} "${WORK_DIR}"
 
