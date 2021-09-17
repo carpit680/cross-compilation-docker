@@ -9,6 +9,10 @@ COPY qemu-arm-static /usr/bin
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
+# Update OSRF repo keys
+RUN apt-get update && apt-get install curl && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+
+
 # Installed for convenience
 RUN apt-get update && apt-get install -y vim
 
@@ -43,4 +47,3 @@ COPY custom-pip-rules.conf   /etc/pip.conf
 
 # Add custom apt sources for bundling
 COPY ${UBUNTU_VERSION}-sources.yaml /opt/cross/apt-sources.yaml
-
